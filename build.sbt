@@ -28,3 +28,5 @@ runAll := {
 }
 
 ThisBuild / githubWorkflowBuild += WorkflowStep.Sbt(List("runAll"), name = Some(s"Run all main classes"))
+
+ThisBuild / githubWorkflowPublishTargetBranches := Seq()
