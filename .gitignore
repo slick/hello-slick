@@ -2,3 +2,7 @@
 *.log
 target/
 .bsp/
+.bloop/
+metals.sbt
+.metals
+.vscode/settings.json
