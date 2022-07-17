@@ -15,11 +15,10 @@ lazy val runAll = taskKey[Unit]("Run all main classes")
 def runAllIn(config: Configuration) = Def.task {
     val s = streams.value
     val cp = (config / fullClasspath).value
-    val r = (run / runner).value
+    val r = (config / run / runner).value
     val classes = (config / discoveredMainClasses).value
-    classes.foreach { c =>
-      s.log.info(s"Running $c")
-      r.run(c, cp.files, Seq(), s.log)
+    classes.foreach { className =>
+      r.run(className, cp.files, Seq(), s.log).get
     }
 }
 
