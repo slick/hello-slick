@@ -1,7 +1,7 @@
 libraryDependencies ++= List(
   "org.slf4j" % "slf4j-nop" % "1.7.36",
   "com.h2database" % "h2" % "2.1.214",
-  "org.scalatest" %% "scalatest" % "3.2.12" % Test
+  "org.scalatest" %% "scalatest" % "3.2.13" % Test
 )
 
 scalacOptions += "-deprecation"
