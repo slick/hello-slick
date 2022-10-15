@@ -1,5 +1,5 @@
 libraryDependencies ++= List(
-  "org.slf4j" % "slf4j-nop" % "2.0.1",
+  "org.slf4j" % "slf4j-nop" % "2.0.3",
   "com.h2database" % "h2" % "2.1.214",
   "org.scalatest" %% "scalatest" % "3.2.14" % Test
 )
