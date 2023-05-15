@@ -3,7 +3,7 @@ import _root_.io.github.nafg.mergify.dsl._
 libraryDependencies ++= List(
   "org.slf4j" % "slf4j-nop" % "2.0.7",
   "com.h2database" % "h2" % "2.1.214",
-  "org.scalatest" %% "scalatest" % "3.2.15" % Test
+  "org.scalatest" %% "scalatest" % "3.2.16" % Test
 )
 
 scalacOptions += "-deprecation"
