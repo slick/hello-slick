@@ -2,5 +2,5 @@
   "extends": [
     "config:base"
   ],
-  "ignorePaths": [".github/workflows/ci.yml"]
+  "ignorePaths": [".github/workflows/ci.yml", "project/plugins.sbt"]
 }
