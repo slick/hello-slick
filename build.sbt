@@ -8,7 +8,7 @@ libraryDependencies ++= List(
 
 scalacOptions += "-deprecation"
 run / fork := true
-libraryDependencies += "com.typesafe.slick" %% "slick" % "3.5.0"
+libraryDependencies += "com.typesafe.slick" %% "slick" % "3.5.1"
 
 mergifyExtraConditions := Seq(
   (Attr.Author :== "scala-steward") ||
