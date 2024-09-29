@@ -1,4 +1,4 @@
-import _root_.io.github.nafg.mergify.dsl._
+import _root_.io.github.nafg.mergify.dsl.*
 
 libraryDependencies ++= List(
   "org.slf4j" % "slf4j-nop" % "2.0.16",
@@ -20,13 +20,13 @@ mergifyExtraConditions := Seq(
 lazy val runAll = taskKey[Unit]("Run all main classes")
 
 def runAllIn(config: Configuration) = Def.task {
-    val s = streams.value
-    val cp = (config / fullClasspath).value
-    val r = (config / run / runner).value
-    val classes = (config / discoveredMainClasses).value
-    classes.foreach { className =>
-      r.run(className, cp.files, Seq(), s.log).get
-    }
+  val s = streams.value
+  val cp = (config / fullClasspath).value
+  val r = (config / run / runner).value
+  val classes = (config / discoveredMainClasses).value
+  classes.foreach { className =>
+    r.run(className, cp.files, Seq(), s.log).get
+  }
 }
 
 runAll := {
@@ -34,6 +34,9 @@ runAll := {
   runAllIn(Test).value
 }
 
-ThisBuild / githubWorkflowBuild += WorkflowStep.Sbt(List("runAll"), name = Some(s"Run all main classes"))
-
 ThisBuild / githubWorkflowPublishTargetBranches := Seq()
+ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.zulu("11"))
+ThisBuild / githubWorkflowBuild += WorkflowStep.Sbt(
+  List("runAll"),
+  name = Some(s"Run all main classes")
+)
