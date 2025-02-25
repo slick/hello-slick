@@ -1,7 +1,7 @@
 import _root_.io.github.nafg.mergify.dsl.*
 
 libraryDependencies ++= List(
-  "org.slf4j" % "slf4j-nop" % "2.0.16",
+  "org.slf4j" % "slf4j-nop" % "2.0.17",
   "com.h2database" % "h2" % "2.3.232",
   "org.scalatest" %% "scalatest" % "3.2.19" % Test
 )
