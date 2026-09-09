@@ -1,6 +1,6 @@
 import _root_.io.github.nafg.mergify.dsl.*
 
-ThisBuild / scalaVersion := "2.13.18"
+ThisBuild / scalaVersion := "3.9.0"
 
 libraryDependencies ++= List(
   "org.slf4j" % "slf4j-nop" % "2.0.19",
