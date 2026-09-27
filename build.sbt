@@ -4,7 +4,7 @@ ThisBuild / scalaVersion := "2.13.18"
 
 libraryDependencies ++= List(
   "org.slf4j" % "slf4j-nop" % "2.0.19",
-  "com.h2database" % "h2" % "2.5.250",
+  "com.h2database" % "h2" % "2.5.252",
   "org.scalatest" %% "scalatest" % "3.2.20" % Test
 )
 
