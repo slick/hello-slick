@@ -3,7 +3,7 @@ import _root_.io.github.nafg.mergify.dsl.*
 ThisBuild / scalaVersion := "2.13.18"
 
 libraryDependencies ++= List(
-  "org.slf4j" % "slf4j-nop" % "2.0.19",
+  "org.slf4j" % "slf4j-nop" % "2.0.20",
   "com.h2database" % "h2" % "2.5.250",
   "org.scalatest" %% "scalatest" % "3.2.20" % Test
 )
