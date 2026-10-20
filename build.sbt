@@ -10,6 +10,8 @@ libraryDependencies ++= List(
 
 scalacOptions += "-deprecation"
 run / fork := true
+// There are several main classes, so the jar sbt builds for the classpath gets no Main-Class
+Compile / packageBin / mainClass := None
 libraryDependencies += "com.typesafe.slick" %% "slick" % "4.0.0-RC2"
 
 mergifyExtraConditions := Seq(
