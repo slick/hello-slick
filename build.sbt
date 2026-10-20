@@ -42,7 +42,8 @@ runAll := {
 
 ThisBuild / githubWorkflowPublishTargetBranches := Seq()
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.zulu("17"))
-ThisBuild / githubWorkflowBuild += WorkflowStep.Sbt(
-  List("runAll"),
-  name = Some(s"Run all main classes")
+ThisBuild / githubWorkflowBuild := Seq(
+  // sbt 2's `test` is incremental (testQuick); with the sbt disk cache CI restores, it ran no tests
+  WorkflowStep.Sbt(List("testFull"), name = Some("Build project")),
+  WorkflowStep.Sbt(List("runAll"), name = Some("Run all main classes"))
 )

@@ -46,7 +46,7 @@ jobs:
         run: sbt '++ ${{ matrix.scala }}; githubWorkflowCheck'
 
       - name: Build project
-        run: sbt '++ ${{ matrix.scala }}; test'
+        run: sbt '++ ${{ matrix.scala }}; testFull'
 
       - name: Run all main classes
         run: sbt '++ ${{ matrix.scala }}; runAll'
