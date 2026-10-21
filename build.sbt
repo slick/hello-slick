@@ -10,6 +10,8 @@ libraryDependencies ++= List(
 
 scalacOptions += "-deprecation"
 run / fork := true
+// There are several main classes, so the jar sbt builds for the classpath gets no Main-Class
+Compile / packageBin / mainClass := None
 libraryDependencies += "com.typesafe.slick" %% "slick" % "4.0.0-RC2"
 
 mergifyExtraConditions := Seq(
@@ -40,7 +42,8 @@ runAll := {
 
 ThisBuild / githubWorkflowPublishTargetBranches := Seq()
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.zulu("17"))
-ThisBuild / githubWorkflowBuild += WorkflowStep.Sbt(
-  List("runAll"),
-  name = Some(s"Run all main classes")
+ThisBuild / githubWorkflowBuild := Seq(
+  // sbt 2's `test` is incremental (testQuick); with the sbt disk cache CI restores, it ran no tests
+  WorkflowStep.Sbt(List("testFull"), name = Some("Build project")),
+  WorkflowStep.Sbt(List("runAll"), name = Some("Run all main classes"))
 )
