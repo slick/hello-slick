@@ -18,7 +18,7 @@ object CaseClassMapping extends IOApp.Simple {
       users += User("Fred Smith"),
 
       // print the users (select * from USERS)
-      users.result.map(println)
+      users.result.map(println(_))
     ))
   }
 }

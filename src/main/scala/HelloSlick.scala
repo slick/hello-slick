@@ -50,7 +50,7 @@ object HelloSlick extends IOApp.Simple {
         suppliers.result
 
       val combinedAction: DBIO[Seq[(Int, String, String, String, String, String)]] =
-        insertAndPrintAction andThen allSuppliersAction
+        insertAndPrintAction.andThen(allSuppliersAction)
 
       val combinedIO: IO[Seq[(Int, String, String, String, String, String)]] =
         db.run(combinedAction)
@@ -83,7 +83,7 @@ object HelloSlick extends IOApp.Simple {
       println("Generated SQL for filter query:\n" + filterQuery.result.statements)
 
       // Execute the query and print the Seq of results
-      db.run(filterQuery.result.map(println))
+      db.run(filterQuery.result.map(println(_)))
 
     }.flatMap { _ =>
 
